@@ -1,0 +1,83 @@
+shinyUI(pageWithSidebar(
+        headerPanel("Find the Best / Worst Hospital"),
+          
+        sidebarPanel(
+                
+                selectizeInput("state", "Select State:", c("AK"="AK",
+                                                        "AL"="AL",
+                                                        "AR"="AR",
+                                                        "AS"="AS",
+                                                        "AZ"="AZ",
+                                                        "CA"="CA",
+                                                        "CO"="CO",
+                                                        "CT"="CT",
+                                                        "DC"="DC",
+                                                        "DE"="DE",
+                                                        "FL"="FL",
+                                                        "GA"="GA",
+                                                        "GU"="GU",
+                                                        "HI"="HI",
+                                                        "IA"="IA",
+                                                        "ID"="ID",
+                                                        "IL"="IL",
+                                                        "IN"="IN",
+                                                        "KS"="KS",
+                                                        "KY"="KY",
+                                                        "LA"="LA",
+                                                        "MA"="MA",
+                                                        "MD"="MD",
+                                                        "ME"="ME",
+                                                        "MI"="MI",
+                                                        "MN"="MN",
+                                                        "MO"="MO",
+                                                        "MP"="MP",
+                                                        "MS"="MS",
+                                                        "MT"="MT",
+                                                        "NC"="NC",
+                                                        "ND"="ND",
+                                                        "NE"="NE",
+                                                        "NH"="NH",
+                                                        "NJ"="NJ",
+                                                        "NM"="NM",
+                                                        "NV"="NV",
+                                                        "NY"="NY",
+                                                        "OH"="OH",
+                                                        "OK"="OK",
+                                                        "OR"="OR",
+                                                        "PA"="PA",
+                                                        "PR"="PR",
+                                                        "RI"="RI",
+                                                        "SC"="SC",
+                                                        "SD"="SD",
+                                                        "TN"="TN",
+                                                        "TX"="TX",
+                                                        "UT"="UT",
+                                                        "VA"="VA",
+                                                        "VI"="VI",
+                                                        "VT"="VT",
+                                                        "WA"="WA",
+                                                        "WI"="WI",
+                                                        "WV"="WV",
+                                                        "WY"="WY"
+                                                        
+                )),
+                                
+                selectizeInput("disease", "Select Outcome:",
+                            c("Heart Attack" = "heart attack",
+                              "Heart Failure" = "heart failure",
+                              "Pneumonia" = "pneumonia")),
+                
+                radioButtons("num", "Best or Worst",
+                             c("Best" = "best",
+                               "Worst" = "worst")),
+                
+                actionButton("goButton", "Check")
+                
+        ),
+        mainPanel(
+                p('The data for this assignment come from the Hospital Compare web site http://hospitalcompare.hhs.gov, run by the U.S. Department of Health and Human Services.This Application will help to find out which hospital has the best/worst 30 day mortality rate for HeartAttack, Heart Failure and Pneumonia'),
+                h4('How to use the Application: Just Select the State and Outcome from the dropdown. Select Best or Worst and click on Check button'),
+                h2('The hospital with best/worst mortality is'),
+                h3(textOutput("hospital"))
+        )
+))
